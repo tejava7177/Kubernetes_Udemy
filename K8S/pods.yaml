@@ -17,6 +17,9 @@ kind: ReplicaSet
 metadate:
   name: webapp-replicaset
 spec:
+  selector:
+    matchLabels:
+      app: webapp
   replicas: 1
   template: #template for the pods
     metadata:
