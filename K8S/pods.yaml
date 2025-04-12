@@ -1,13 +1,14 @@
 
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
   name: webapp-replicaset
 spec:
+  # minReadySeconds: 30
   selector:
     matchLabels:
       app: webapp
-  replicas: 1
+  replicas: 2
   template: #template for the pods
     metadata:
       labels:
@@ -15,8 +16,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: richardchesterwood/k8s-fleetman-webapp-angular:release0-5
-
+          image: richardchesterwood/k8s-fleetman-webapp-angular:release0
 
 
 ---
